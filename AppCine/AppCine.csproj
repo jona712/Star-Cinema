@@ -1,0 +1,641 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{254F8A43-27FC-4F48-892B-5F9A4F750D6D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AppCine</RootNamespace>
+    <AssemblyName>AppCine</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.QRCode, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MessagingToolkit.QRCode.1.3.0\lib\MessagingToolkit.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=6.27.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Abstractions.6.27.0\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.27.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.6.27.0\lib\net472\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols, Version=6.27.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.6.27.0\lib\net472\Microsoft.IdentityModel.Protocols.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.27.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.27.0\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.7.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.7.0.0\lib\net462\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.5.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.7.2\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.4.7.2\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connected Services\BCCR\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\BLL\CineLN.cs" />
+    <Compile Include="Layers\BLL\ClasificacionLN.cs" />
+    <Compile Include="Layers\BLL\Detalle_FacturaLN.cs" />
+    <Compile Include="Layers\BLL\EntradaLN.cs" />
+    <Compile Include="Layers\BLL\FacturaLN.cs" />
+    <Compile Include="Layers\DAL\CineDB.cs" />
+    <Compile Include="Layers\DAL\ClasificacionDB.cs" />
+    <Compile Include="Layers\DAL\Detalle_FacturaDB.cs" />
+    <Compile Include="Layers\DAL\EntradaDB.cs" />
+    <Compile Include="Layers\DAL\FacturaDB.cs" />
+    <Compile Include="Layers\DAL\HorarioDB.cs" />
+    <Compile Include="Layers\DAL\PeliculaDB.cs" />
+    <Compile Include="Layers\DAL\SalaDB.cs" />
+    <Compile Include="Layers\DAL\SalaPeliculaDB.cs" />
+    <Compile Include="Layers\DAL\TipoUsuarioDB.cs" />
+    <Compile Include="Layers\DAL\UsuarioDB.cs" />
+    <Compile Include="Layers\Entities\Asiento.cs" />
+    <Compile Include="Layers\Entities\Cine.cs" />
+    <Compile Include="Layers\Entities\Clasificacion.cs" />
+    <Compile Include="Layers\Entities\Detalle_Factura.cs" />
+    <Compile Include="Layers\Entities\Entrada.cs" />
+    <Compile Include="Layers\Entities\Factura.cs" />
+    <Compile Include="Layers\Entities\Horario.cs" />
+    <Compile Include="Layers\Entities\Mall.cs" />
+    <Compile Include="Layers\Entities\Pelicula.cs" />
+    <Compile Include="Layers\Entities\Sala.cs" />
+    <Compile Include="Layers\Entities\SalaPelicula.cs" />
+    <Compile Include="Layers\Entities\TipoUsuario.cs" />
+    <Compile Include="Layers\Entities\Usuario.cs" />
+    <Compile Include="Layers\UI\Mantenimientos\frmCine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Mantenimientos\frmCine.Designer.cs">
+      <DependentUpon>frmCine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Procesos\frmAsientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Procesos\frmAsientos.Designer.cs">
+      <DependentUpon>frmAsientos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Procesos\frmCartelera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Procesos\frmCartelera.Designer.cs">
+      <DependentUpon>frmCartelera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Procesos\frmFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Procesos\frmFactura.Designer.cs">
+      <DependentUpon>frmFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Procesos\frmHorarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Procesos\frmHorarios.Designer.cs">
+      <DependentUpon>frmHorarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Mantenimientos\frmPeliculas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Mantenimientos\frmPeliculas.Designer.cs">
+      <DependentUpon>frmPeliculas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Mantenimientos\frmProgramaccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Mantenimientos\frmProgramaccion.Designer.cs">
+      <DependentUpon>frmProgramaccion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Mantenimientos\frmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Mantenimientos\frmUsuarios.Designer.cs">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\BLL\AsientoLN.cs" />
+    <Compile Include="Layers\DAL\AsientoDB.cs" />
+    <Compile Include="Layers\Persistencia\DataBase.cs" />
+    <Compile Include="Layers\Persistencia\FactoryConexion.cs" />
+    <Compile Include="Layers\Persistencia\FactoryDataBase.cs" />
+    <Compile Include="Layers\Persistencia\IDataBase.cs" />
+    <Compile Include="Layers\UI\frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\BLL\EnviarCorreo.cs" />
+    <Compile Include="Layers\BLL\HorarioLN.cs" />
+    <Compile Include="Layers\BLL\PeliculaLN.cs" />
+    <Compile Include="Layers\BLL\SalaLN.cs" />
+    <Compile Include="Layers\BLL\SalaPeliculaLN.cs" />
+    <Compile Include="Layers\BLL\TipoUsuarioLN.cs" />
+    <Compile Include="Layers\BLL\UsuarioLN.cs" />
+    <Compile Include="Layers\UI\Reportes\DataSetReportes.cs">
+      <DependentUpon>DataSetReportes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Reportes\DataSetReportes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetReportes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Reportes\Facturacion\DataSetFacturacion.cs">
+      <DependentUpon>DataSetFacturacion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Reportes\Facturacion\DataSetFacturacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetFacturacion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Reportes\Facturacion\frmEntradas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Reportes\Facturacion\frmEntradas.Designer.cs">
+      <DependentUpon>frmEntradas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Reportes\Facturacion\frmFacturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Reportes\Facturacion\frmFacturacion.Designer.cs">
+      <DependentUpon>frmFacturacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Reportes\frmReporteEntradas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Reportes\frmReporteEntradas.Designer.cs">
+      <DependentUpon>frmReporteEntradas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Reportes\frmReporteFacturaGrafico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Reportes\frmReporteFacturaGrafico.Designer.cs">
+      <DependentUpon>frmReporteFacturaGrafico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Reportes\frmReporteFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Reportes\frmReporteFacturas.Designer.cs">
+      <DependentUpon>frmReporteFacturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Utilitarios\QuickResponse.cs" />
+    <Compile Include="Utilitarios\Utilitarios.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Layers\UI\Mantenimientos\frmCine.resx">
+      <DependentUpon>frmCine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Procesos\frmAsientos.resx">
+      <DependentUpon>frmAsientos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Procesos\frmCartelera.resx">
+      <DependentUpon>frmCartelera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Procesos\frmFactura.resx">
+      <DependentUpon>frmFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Procesos\frmHorarios.resx">
+      <DependentUpon>frmHorarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Mantenimientos\frmPeliculas.resx">
+      <DependentUpon>frmPeliculas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Mantenimientos\frmProgramaccion.resx">
+      <DependentUpon>frmProgramaccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Mantenimientos\frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Reportes\Facturacion\Entradas.rdlc" />
+    <EmbeddedResource Include="Layers\UI\Reportes\Facturacion\Factura.rdlc" />
+    <EmbeddedResource Include="Layers\UI\Reportes\Facturacion\frmEntradas.resx">
+      <DependentUpon>frmEntradas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Reportes\Facturacion\frmFacturacion.resx">
+      <DependentUpon>frmFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Reportes\frmReporteEntradas.resx">
+      <DependentUpon>frmReporteEntradas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Reportes\frmReporteFacturaGrafico.resx">
+      <DependentUpon>frmReporteFacturaGrafico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Reportes\frmReporteFacturas.resx">
+      <DependentUpon>frmReporteFacturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Reportes\ReporteEntradasByHorario.rdlc" />
+    <EmbeddedResource Include="Layers\UI\Reportes\ReporteEntradasByPelicula.rdlc" />
+    <EmbeddedResource Include="Layers\UI\Reportes\ReporteEntradasBySala.rdlc" />
+    <EmbeddedResource Include="Layers\UI\Reportes\ReporteFacturaGrafico.rdlc" />
+    <EmbeddedResource Include="Layers\UI\Reportes\ReporteFacturasByFecha.rdlc" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Connected Services\BCCR\wsindicadoreseconomicos.wsdl" />
+    <None Include="Layers\UI\Reportes\DataSetReportes.xsc">
+      <DependentUpon>DataSetReportes.xsd</DependentUpon>
+    </None>
+    <None Include="Layers\UI\Reportes\DataSetReportes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetReportes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Layers\UI\Reportes\DataSetReportes.xss">
+      <DependentUpon>DataSetReportes.xsd</DependentUpon>
+    </None>
+    <None Include="Layers\UI\Reportes\Facturacion\DataSetFacturacion.xsc">
+      <DependentUpon>DataSetFacturacion.xsd</DependentUpon>
+    </None>
+    <None Include="Layers\UI\Reportes\Facturacion\DataSetFacturacion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetFacturacion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Layers\UI\Reportes\Facturacion\DataSetFacturacion.xss">
+      <DependentUpon>DataSetFacturacion.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MenuFondo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CineFondo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Thor.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Avatar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wakanda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Conjuro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Siniestro.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RuegaXNosotros.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Red.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ComoEntrenarDragon.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Salir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EliminarConMenos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EliminarIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EliminarConMenos1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LimpiarIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MantenimientoIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Registro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NuevaCompra.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QueVer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tickets.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VerPelicula.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LentesVer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reportes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Configuración.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inicio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Usuarios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InsertarImagen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cartelera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Asiento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cineStar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FondoCine2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fondo3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Atras1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Atras2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tickets2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Inicio2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ajuste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reproducir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pelicula.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Usuarios2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reportes1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Archivo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Archivo21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reloj.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Atras3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Escoba.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Adelante.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregarImagen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reportes2.png" />
+    <None Include="Resources\InforIcon.png" />
+    <None Include="Resources\Cinestar_1.png" />
+    <None Include="Resources\Cinestar_1 - copia.png" />
+    <None Include="Resources\Cinestar_1 - copia - copia.png" />
+    <None Include="Resources\confirmarCompra.png" />
+    <None Include="Resources\pdfNuevo.png" />
+    <None Include="Resources\Grafico.png" />
+    <None Include="Resources\cine.png" />
+    <None Include="Resources\costaRica.png" />
+    <None Include="Resources\compartir.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\Star_Cinema_by_Jonnan11.png" />
+    <None Include="Resources\Star_Cinema_by_Jonnan2.png" />
+    <None Include="Resources\Star_Cinema_by_Jonnan1.png" />
+    <None Include="Resources\Star_Cinema_by_Jonnan %281%29.png" />
+    <None Include="Resources\Star_Cinema_by_Jonnan.png" />
+    <None Include="Resources\Billete.png" />
+    <None Include="Resources\Cinema-PNG-Clipart-Background.png" />
+    <None Include="Resources\Horarios.png" />
+    <None Include="Resources\ojoBlanco - copia.jpg" />
+    <None Include="Resources\ojoBlanco.jpg" />
+    <None Include="Resources\OjoVer.png" />
+    <None Include="Resources\SiPulgar.png" />
+    <None Include="Resources\NoPulgar.png" />
+    <None Include="Resources\register1.png" />
+    <None Include="Resources\register.png" />
+    <None Include="Resources\Registrarse.png" />
+    <None Include="Resources\CineMark11.png" />
+    <None Include="Resources\cinemarkBlanco.png" />
+    <None Include="Resources\CineMark1.png" />
+    <None Include="Resources\Cineworld.png" />
+    <None Include="Resources\Cinemark.png" />
+    <None Include="Resources\LogoCine2.jpg" />
+    <None Include="Resources\Logo Cine.jpg" />
+    <None Include="Resources\Confirmar.png" />
+    <None Include="Resources\1155.jpg" />
+    <None Include="Connected Services\BCCR\wsindicadoreseconomicos.disco" />
+    <None Include="Connected Services\BCCR\configuration91.svcinfo" />
+    <None Include="Connected Services\BCCR\configuration.svcinfo" />
+    <None Include="Connected Services\BCCR\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Resources\3185113.jpg" />
+    <Content Include="Resources\AgregarIcon.png" />
+    <Content Include="Resources\ArchivoIcon.png" />
+    <Content Include="Resources\Asiento1.png" />
+    <Content Include="Resources\Asiento2.png" />
+    <Content Include="Resources\Atras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Layers\Interfaces\" />
+    <Folder Include="Patrones\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceState\ServicioProvincia.csproj">
+      <Project>{e92ce6cc-ad22-4189-b63a-a95e75eaf8f2}</Project>
+      <Name>ServicioProvincia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServicioBCCR\ServicioBCCR.csproj">
+      <Project>{71c5276b-9563-43aa-8a75-9e7b896d178f}</Project>
+      <Name>ServicioBCCR</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\BCCR\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
