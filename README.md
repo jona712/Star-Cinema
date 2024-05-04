@@ -1,10 +1,10 @@
 # Star Cinema
 
-The "Star Cinema" project is a cinema management system developed in Visual Studio 2022 using C#. It allows users to select movies, showtimes, and seats, and perform billing. The system includes maintenance of the movie lineup, users, movies, theaters, and showtimes. It also generates reports in PDF format, implements security controls, and consumes an API from the Banco Central De Costa Rica to obtain the exchange rate. The project utilizes various design patterns such as Facade, Factory, among others, and uses a SQL Server database for information management.
+Movie Ticket Billing System.
 
 ## Description
 
-"Star Cinema" is a cinema management system developed in Visual Studio 2022 using C#. It enables users to select movies, showtimes, and seats, perform billing, and includes maintenance of movie lineups, users, theaters, and showtimes. The system generates PDF reports, implements security controls, and consumes an API from the Banco Central De Costa Rica to obtain exchange rates.
+The "Star Cinema" project is a comprehensive cinema management system developed in Visual Studio 2022 using C#. It enables users to select movies, showtimes, and seats, perform billing, and includes maintenance of movie lineups, users, theaters, and showtimes. The system also generates reports in PDF format, implements security controls, and consumes an API from the Banco Central De Costa Rica to obtain exchange rates. Utilizing various design patterns such as Facade, Factory, among others, and leveraging a SQL Server database for information management, "Star Cinema" offers a seamless moviegoing experience while ensuring efficient data handling and security.
 
 ## Technologies Used
 
